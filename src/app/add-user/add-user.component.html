@@ -1,0 +1,97 @@
+<app-header></app-header>
+<div class="container">
+  
+  <div class="row">
+    <div class="col-sm-3">
+  
+          <img style="position: absolute;
+          right: 100px;
+          top: 100px;" 
+          src="assets/adminlogo.png">
+          <h3 style="position: absolute;
+          right: 120px;
+          top: 330px; text-align: center">Espace Administrateur</h3>
+        
+    </div>
+    <div class="col-sm-9">
+      <div class="pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Ajouter Utilisateur</h1>
+  
+</div>
+
+<!-- Student form -->
+<form [formGroup]="userForm" (ngSubmit)="submitUserData()" novalidate>
+  <div class="row">
+    <div class="col-lg-5 col-md-12 col-sm-12">
+      <div class="row">
+
+        <div class="col-md-12 mb-3">
+          <label>Nom</label>
+          <input type="text" formControlName="nom" class="form-control" required>
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label>Prénom</label>
+          <input type="text" formControlName="prenom" class="form-control" required>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 mb-3">
+          <label>Email</label>
+          <input type="email" formControlName="email" class="form-control" required>
+          <!-- Showing errors using getter method -->
+          <h6 style="color:red;margin-left: 5%">{{message}}</h6>
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label>Mot de passe</label>
+          <input type="password" formControlName="password" class="form-control" required>
+          <!-- Showing errors using getter method -->
+        </div>
+        <div class="col-md-12 mb-3">
+          <label>Confirmer Mot de passe</label>
+          <input type="password" formControlName="confirm" class="form-control" required>
+          <h6 style="color:red;margin-left: 5%">{{showw}}</h6>
+
+          <!-- Showing errors using getter method -->
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label>Télephone</label>
+          <input type="text" formControlName="telephone" class="form-control" required>
+          <!-- Showing errors using getter method -->
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label>Matricule Voiture</label>
+          <input type="text" formControlName="matricule" class="form-control" required>
+          <!-- Showing errors using getter method -->
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <div class="input-group-prepend">
+            <label>Statut </label>
+          </div>
+          <select class="custom-select" formControlName="grade" id="inputGroupSelect01" required>
+            <option value="Abonné" >Abonné</option>
+            <option value="Admin">Admin</option>
+          </select>
+        </div>
+        <h6 style="color:red;margin-left: 5%"> * Tous les champs sont obligatoires</h6>
+      </div>
+      
+
+
+      <div class="form-group text-right">
+        <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Annuler</button>  
+        <button  style="margin-left: 10px" type="submit" class="btn btn-success" [disabled]="!userForm.valid">Ajouter User</button>
+      </div>
+
+    </div>
+  </div>
+</form> </div>
+    
+</div>
+</div>

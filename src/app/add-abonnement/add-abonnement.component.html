@@ -1,0 +1,78 @@
+<app-header></app-header>
+<div class="container">
+  
+    <div class="row">
+      <div class="col-sm-3">
+    
+            <img style="position: absolute;
+            right: 100px;
+            top: 100px;" 
+            src="assets/adminlogo.png">
+            <h3 style="position: absolute;
+            right: 120px;
+            top: 330px; text-align: center">Espace Administrateur</h3>
+          
+      </div>
+      <div class="col-sm-9"><div class="pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Ajouter Abonnement</h1>
+  
+</div>
+
+<!-- Student form -->
+<form [formGroup]="abonnementForm" (ngSubmit)="submitAbonnementData()" novalidate>
+  <div class="row">
+    <div class="col-lg-5 col-md-12 col-sm-12">
+      <div class="row">
+
+        <!--<div class="col-md-12 mb-3">
+          <label>Mode</label>
+          <input type="text" formControlName="mode" class="form-control" required>
+        </div>
+        <div class="input-group mb-3" class="col-md-12 mb-3">
+          <div class="input-group-prepend">
+            <label  for="inputGroupSelect01">Mode</label>
+          </div>
+          <select class="custom-select" formControlName="mode" class="form-control" id="inputGroupSelect01">
+            <option selected>Choisir</option>
+            <option value="Mois">Mois</option>
+            <option value="Année">Année</option>
+            <option value="Semestre">Semestre</option>
+          </select>
+        </div>
+         -->
+         <div class="col-md-12 mb-3">
+          <label>Email</label>
+          <select  formControlName="email" class="form-control" required>
+<option *ngFor="let user of User"   [ngValue]="user.email" >{{user.email}}</option>   
+          </select>
+              <!-- Showing errors using getter method -->
+          </div>
+        <div class="col-md-12 mb-3">
+          <label>Code</label>
+          <input type="number" disabled formControlName="code" class="form-control">
+        </div>
+        <div class="col-md-12 mb-3">
+            <label>Date debut</label>
+            <input type="text" disabled formControlName="mode" class="form-control" required>
+                <!-- Showing errors using getter method -->
+            </div>
+      
+
+      
+      <div class="col-md-12 mb-3">
+      <label>Date expiration</label>
+      <input type="date" min='2019-06-21' max='2021-01-01'formControlName="expiration" class="form-control" required>
+          <!-- Showing errors using getter method -->
+      </div>
+      <h6 style="color:red;margin-left: 5%"> * Tous les champs sont obligatoires</h6>
+    </div>
+      
+
+
+      <div class="form-group text-right">
+        <button type="button" class="btn btn-secondary gap-right" (click)="ResetForm()">Annuler</button>
+        <button style="margin-left: 10px" type="submit" class="btn btn-success" [disabled]="!abonnementForm.valid">Ajouter Abonnement</button>
+      </div>
+    </div>
+    </div>
+</form></div></div></div>

@@ -1,0 +1,99 @@
+<app-header></app-header><div class="container">
+  
+    <div class="row">
+      <div class="col-sm-3">
+    
+            <img style="position: absolute;
+            right: 100px;
+            top: 100px;" 
+            src="assets/adminlogo.png">
+            <h3 style="position: absolute;
+            right: 120px;
+            top: 330px; text-align: center">Espace Administrateur</h3>
+          
+      </div>
+      <div class="col-sm-9"><div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Etat Parking</h1>
+<!--
+  <a routerLink="/add-park" class="btn btn-success" *ngIf="hideWhenNoStudent">
+    <i class="fas fa-plus custom-fa-plus"></i>
+    Ajouter park
+  </a>
+</div>
+
+<div class="pricing-header mx-auto">
+
+  <div class="no-data text-center" *ngIf="preLoader">
+    <img src="assets/preloader.gif" class="preloader-icon" alt="No park">
+  </div>
+
+  <div class="no-data text-center" *ngIf="noData">
+    <img src="assets/no-park.svg" class="nodata-msg" alt="No park">
+    <p class="nodata-msg">No park added yet!</p>
+    <a routerLink="/add-park" class="btn btn-success">
+      <i class="fas fa-plus custom-fa-plus"></i>
+      Ajouter park
+    </a>
+  </div>
+
+  <div class="table-responsive" *ngIf="hideWhenNoStudent">
+    <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
+      <thead>
+        <tr>
+          <th scope="col">Titre</th>
+          <th scope="col">Adresse</th>             
+           <th scope="col">Capacite</th>
+        
+          <th class="text-center" scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let park of Park | paginate: { itemsPerPage: 7, currentPage: p }; let i = index;">
+          <td>{{park.titre}} </td>
+          <td>{{park.adresse}} </td>
+          <td>{{park.capacite}} </td>
+          
+          <td class="text-center action-block">
+            <i class="far fa-trash-alt" (click)="Supprimerannonce(park)"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <pagination-controls (pageChange)="p = $event" autoHide="true" responsive="true"></pagination-controls>
+</div>
+</div></div></div>--></div>
+<div class="pricing-header mx-auto">
+<div class="table-responsive" >
+  <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
+    <thead>
+      <tr>
+          <th scope="col" rowspan="2" style="text-emphasis-position: top">Places :</th>
+           <th scope="col">Réservées</th>
+           <th scope="col">Totale </th>             
+      </tr>
+      <tr>
+           <th scope="col">{{capacite}}</th>
+           <th scope="col">8 </th>             
+      </tr>
+      </thead>
+    </table>
+  </div>
+    </div>
+<br>
+<br>
+    <div class="col-sm-16"><div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Porte :</h1>
+      </div>
+      <div class="pricing-header mx-auto">
+          <iframe class="row"  width="800px" align="center" height="500px" frameborder="0" src="https://app.ubidots.com/ubi/public/getdashboard/dPICMzH5XYBFrh1415RhSVVRfgc"></iframe><br>
+
+          </div>
+          <div class="col-sm-16"><div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Camera :</h1>
+          </div>
+          <div class="pricing-header mx-auto">
+            <iframe class="row"  width="800px" align="center" height="500px" frameborder="0" src="http://192.168.1.2:8080/browserfs.html"></iframe><br>
+  
+            </div>

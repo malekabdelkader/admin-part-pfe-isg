@@ -1,0 +1,55 @@
+
+<div class="container">
+  
+    <div class="row">
+      <div class="col-sm-3">
+    
+            <img style="position: absolute;
+            right: 100px;
+            top: 100px;" 
+            src="assets/adminlogo.png">
+            <h3 style="position: absolute;
+            right: 120px;
+            top: 330px; text-align: center">Espace Administrateur</h3>
+          
+      </div>
+      <div class="col-sm-9"><div class="pt-3 pb-2 mb-3 " style="margin-top: 12%">
+  
+</div>
+
+<!-- Student form -->
+<form [formGroup]="userForm" (ngSubmit)="Searchannonce()" novalidate  >
+  <div class="row">
+
+    <div class="col-lg-5 col-md-12 col-sm-12">
+      <div class="row">
+          <h1 class="h2" >Se connecter</h1>
+
+     
+
+      <div class="row" >
+        <div class="col-md-12 mb-3">
+          <label>Email</label>
+          <input type="email" formControlName="email" class="form-control" required>
+          <!-- Showing errors using getter method -->
+        </div>
+
+        <div class="col-md-12 mb-3" >
+          <label>Mot de passe</label>
+          <input type="password" formControlName="password" class="form-control" required>
+          <h6 style="color: red">{{invalide}}</h6>
+          <!-- Showing errors using getter method -->
+        </div>
+
+
+      <div class="form-group text-right" style="margin-left: 5%">
+        <button style="margin-left: 10px" type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Connexion</button>
+      </div>
+
+    </div>
+  </div></div>
+
+
+  
+ 
+  </div></form></div></div></div>

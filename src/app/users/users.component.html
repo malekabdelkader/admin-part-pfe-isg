@@ -1,0 +1,79 @@
+<app-header></app-header>
+<div class="container">
+  
+  <div class="row">
+    <div class="col-sm-3">
+  
+          <img style="position: absolute;
+          right: 100px;
+          top: 100px;" 
+          src="assets/adminlogo.png">
+          <h3 style="position: absolute;
+          right: 120px;
+          top: 330px; text-align: center">Espace Administrateur</h3>
+        
+    </div>
+    <div class="col-sm-9"><div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Liste des Utilisateurs</h1>
+  <!-- It won't show if there is no user data -->
+  <a routerLink="/add-user" class="btn btn-success" *ngIf="hideWhenNoStudent">
+    <i class="fas fa-plus custom-fa-plus"></i>
+    Ajouter Utilisateur
+  </a>
+</div>
+
+<div class="pricing-header mx-auto">
+
+  <!-- Preloader shows before the data loads-->
+  <div class="no-data text-center" *ngIf="preLoader">
+    <img src="assets/preloader.gif" class="preloader-icon" alt="No user">
+  </div>
+
+  <!-- No data shows when their is no user data available -->
+  <div class="no-data text-center" *ngIf="noData">
+    <img src="assets/no.png" class="nodata-msg" alt="No user">
+    <p class="nodata-msg">Connexion lente (Patientez)</p>
+    <a routerLink="/add-user" class="btn btn-success">
+      <i class="fas fa-plus custom-fa-plus"></i>
+      Ajouter Utilisateur
+    </a>
+  </div>
+
+  <!-- Showing users data -->
+  <div class="table-responsive" *ngIf="hideWhenNoStudent">
+    <h6 style="color: red">NB : L'heure de sortie du Visiteur est inclut au dessus de son Statut</h6>
+    <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg">
+      <thead>
+        <tr>
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>             
+           <th scope="col">Email</th>
+           <!--<th scope="col">Mot de Passe</th>-->
+          <th scope="col">Télephone</th>
+          <th scope="col">Matricule Voiture</th>
+          <th scope="col">Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- *ngFor loop iterates over Student array and fetch the user's data -->
+        <!-- paginate pipe will add pagination in user's list, it won't show if items are less then 7 -->
+        <tr *ngFor="let user of User | paginate: { itemsPerPage: 7, currentPage: p }; let i = index;">
+          <td>{{user.nom}} </td>
+          <td>{{user.prenom}} </td>
+          <td>{{user.email}} </td>
+         <!-- <td>{{user.password}}</td>-->
+          <td>{{user.telephone}} </td>
+          <td>{{user.matricule}} </td>
+          <td>{{user.grade}}<br>{{user.visiteur}} </td>
+          <td class="text-center action-block">
+            <!-- routerLink="/edit-user/{{user.$key}}" is refered to { path: 'edit-user/:id', component: EditStudentComponent } in app-routing.moudles.ts -->
+          <!-- <i class="far fa-edit" routerLink="/edit-user/{{user.$key}}"></i>-->
+            <i  *ngIf='user.grade!=="Abonné"' class="far fa-trash-alt" (click)="Supprimerannonce(user,abonnement)"></i></td>
+      <!---->
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Pagination -->
+  <pagination-controls (pageChange)="p = $event" autoHide="true" responsive="true"></pagination-controls>
+</div></div></div></div>
